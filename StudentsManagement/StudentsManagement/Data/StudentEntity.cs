@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace StudentsManagement.Data
 {
+    [Table("students")]
     public class StudentEntity
     {
         [PrimaryKey, AutoIncrement]

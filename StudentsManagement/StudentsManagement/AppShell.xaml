@@ -3,13 +3,13 @@
     x:Class="StudentsManagement.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:StudentsManagement"
+    xmlns:views="clr-namespace:StudentsManagement.Views"
     Shell.FlyoutBehavior="Flyout"
-    Title="StudentsManagement">
+    Title="Students Management">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate views:StudentListView}"
         Route="MainPage" />
 
 </Shell>
