@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudentsManagement.Views.AddUpdateStudentView"
+             xmlns:vm="clr-namespace:StudentsManagement.ViewModels"
+             x:DataType="vm:AddUpdateStudentViewModel"
              Title="Add / Update Student Details">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -13,17 +15,23 @@
     </ContentPage.Resources>
     <VerticalStackLayout Margin="10" Spacing="15">
         <Label Text="First Name" />
-        <Entry Placeholder="Enter..." Text="{Binding FirstName}" FontSize="16" />
+        <Entry Placeholder="Enter..." Text="{Binding StudentDetail.FirstName}" FontSize="16" />
         <BoxView HeightRequest="0.8" Color="Gray" />
 
         <Label Text="Last Name" />
-        <Entry Placeholder="Enter..." Text="{Binding LastName}" FontSize="16" />
+        <Entry Placeholder="Enter..." Text="{Binding StudentDetail.LastName}" FontSize="16" />
         <BoxView HeightRequest="0.8" Color="Gray" />
 
         <Label Text="Email" />
-        <Entry Placeholder="Enter..." Text="{Binding Email}" FontSize="16" />
+        <Entry Placeholder="Enter..." Text="{Binding StudentDetail.Email}" FontSize="16" />
         <BoxView HeightRequest="0.8" Color="Gray" />
 
-        <Button Text="Save" Command="{Binding AddUpdateStudentCommand}" />
+        <Button 
+            Text="Save" 
+            Command="{Binding AddUpdateStudentCommand}"
+            BackgroundColor="DarkGreen"
+            FontSize="18"
+            FontAttributes="Bold"
+        />
     </VerticalStackLayout>
 </ContentPage>

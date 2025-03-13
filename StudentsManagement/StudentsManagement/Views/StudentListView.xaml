@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudentsManagement.Views.StudentListView"
              xmlns:vm="clr-namespace:StudentsManagement.ViewModels"
+             xmlns:data="clr-namespace:StudentsManagement.Data"
              x:DataType="vm:StudentListViewModel"
              Title="Registered Students:">
     <VerticalStackLayout Margin="10">
@@ -11,6 +12,35 @@
             FontSize="24"
             FontAttributes="Bold"
         />
-        <Button Text="Add Student" Command="{Binding AddUpdateStudentCommand}" HorizontalOptions="End" />
+        <Button 
+            Text="Add Student" 
+            Command="{Binding AddUpdateStudentCommand}" 
+            HorizontalOptions="End" 
+            BackgroundColor="DarkGreen"
+            FontSize="18"
+            FontAttributes="Bold"
+        />
+
+        <CollectionView ItemsSource="{Binding Students}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="data:StudentEntity">
+                    <Border Margin="10" Padding="10">
+                        <StackLayout>
+                            <HorizontalStackLayout Spacing="10">
+                                <Label Text="{Binding FirstName}" FontSize="18" FontAttributes="Bold" />
+                                <Label Text="{Binding LastName}" FontSize="18" FontAttributes="Bold" />
+                            </HorizontalStackLayout>
+                            <Label Text="{Binding Email}" FontSize="16" />
+                        </StackLayout>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:StudentListViewModel}}, 
+                                    Path=DisplayActionCommand}" CommandParameter="{Binding .}"
+                            />
+                        </Border.GestureRecognizers>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
