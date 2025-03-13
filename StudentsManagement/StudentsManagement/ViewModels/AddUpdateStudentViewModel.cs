@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using StudentsManagement.Data;
 using StudentsManagement.Exceptions;
 using StudentsManagement.Services;
+using System.Text.RegularExpressions;
 
 namespace StudentsManagement.ViewModels
 {
@@ -22,8 +23,29 @@ namespace StudentsManagement.ViewModels
         [RelayCommand]
         public async Task AddUpdateStudent()
         {
+            const string NAME_PATTERN = @"^[A-Za-z\s]{2,50}$";
+            const string EMAIL_PATTERN = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
             try
             {
+                if (string.IsNullOrWhiteSpace(StudentDetail.FirstName) || !Regex.IsMatch(StudentDetail.FirstName, NAME_PATTERN))
+                {
+                    await Shell.Current.DisplayAlert("Validation Error", "First name must contain only letters and be at least 2 characters long.", "OK");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(StudentDetail.LastName) || !Regex.IsMatch(StudentDetail.LastName, NAME_PATTERN))
+                {
+                    await Shell.Current.DisplayAlert("Validation Error", "Last name must contain only letters and be at least 2 characters long.", "OK");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(StudentDetail.Email) || !Regex.IsMatch(StudentDetail.Email, EMAIL_PATTERN))
+                {
+                    await Shell.Current.DisplayAlert("Validation Error", "Please enter a valid email address.", "OK");
+                    return;
+                }
+
                 int response = -1;
                 if (StudentDetail.StudentId > 0)
                 {
