@@ -79,5 +79,11 @@ namespace StudentsManagement.ViewModels
                 await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
             }
         }
+
+        [RelayCommand]
+        public async Task Cancel()
+        {
+            await Shell.Current.GoToAsync("..");
+        }
     }
 }

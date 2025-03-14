@@ -30,7 +30,6 @@
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="CornerRadius" Value="10" />
                 <Setter Property="TextColor" Value="White" />
-                <Setter Property="BackgroundColor" Value="#28A745" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -53,7 +52,8 @@
                 <Entry Placeholder="Enter email" Text="{Binding StudentDetail.Email}" Keyboard="Email" />
             </Border>
 
-            <Button Text="Save Student" Command="{Binding AddUpdateStudentCommand}" />
+            <Button Text="Save Student" Command="{Binding AddUpdateStudentCommand}" BackgroundColor="#28A745" />
+            <Button Text="Cancel" Command="{Binding CancelCommand}" BackgroundColor="#FF0000" />
 
         </VerticalStackLayout>
     </ScrollView>
