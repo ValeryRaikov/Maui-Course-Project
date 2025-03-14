@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using StudentsManagement.Data;
 using StudentsManagement.Exceptions;
 using StudentsManagement.Services;
+using StudentsManagement.Views;
 using System.Text.RegularExpressions;
 
 namespace StudentsManagement.ViewModels
@@ -63,6 +64,7 @@ namespace StudentsManagement.ViewModels
                     if (response > 0)
                     {
                         await Shell.Current.DisplayAlert("Student Info Saved!", "Record Saved to Students List.", "OK");
+                        await Shell.Current.GoToAsync("..");
                     }
                     else
                     {

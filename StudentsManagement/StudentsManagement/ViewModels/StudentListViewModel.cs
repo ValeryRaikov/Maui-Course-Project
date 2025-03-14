@@ -34,6 +34,10 @@ namespace StudentsManagement.ViewModels
                         Students.Add(student);
                     }
                 }
+                else
+                {
+                    await Shell.Current.DisplayAlert("Info", "No student records found. Add new students.", "OK");
+                }
             }
             catch (DatabaseException)
             {
@@ -74,14 +78,24 @@ namespace StudentsManagement.ViewModels
                 }
                 else if (response == "Delete")
                 {
-                    var delResponse = await _studentService.DeleteStudent(studentEntity);
+                    bool confirm = await Shell.Current.DisplayAlert("Confirm",
+                        "Are you sure you want to delete this student?", "Yes", "No");
 
-                    if (delResponse > 0)
-                        await GetStudentList();
-                }
-                else
-                {
-                    throw new Exception("Unexpected error occured. Please try again.");
+                    if (confirm)
+                    {
+                        var delResponse = await _studentService.DeleteStudent(studentEntity);
+
+                        if (delResponse > 0)
+                        {
+                            Students.Remove(studentEntity);
+
+                            if (Students.Count == 0)
+                            {
+                                Students.Clear();
+                                await Shell.Current.DisplayAlert("Info", "No student records found.", "OK");
+                            }
+                        }
+                    }
                 }
             }
             catch (DatabaseException)
