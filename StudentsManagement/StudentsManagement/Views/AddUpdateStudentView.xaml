@@ -4,24 +4,23 @@
              x:Class="StudentsManagement.Views.AddUpdateStudentView"
              xmlns:vm="clr-namespace:StudentsManagement.ViewModels"
              x:DataType="vm:AddUpdateStudentViewModel"
-             Title="Add / Update Student Details"
-             BackgroundColor="White">
+             Title="Add / Update Student Details">
 
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="18" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}" />
                 <Setter Property="Margin" Value="5,0,0,5" />
             </Style>
-
+ 
             <Style TargetType="Entry">
                 <Setter Property="FontSize" Value="16" />
-                <Setter Property="BackgroundColor" Value="White" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=#222222}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}" />
                 <Setter Property="Margin" Value="0,5,0,10" />
                 <Setter Property="HeightRequest" Value="50" />
-                <Setter Property="PlaceholderColor" Value="Gray" />
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light=Gray, Dark=LightGray}" />
             </Style>
 
             <Style TargetType="Button">
@@ -38,17 +37,17 @@
         <VerticalStackLayout Margin="20" Spacing="15">
 
             <Label Text="First Name" />
-            <Border Padding="5" BackgroundColor="#F5F5F5">
+            <Border Padding="5" BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}">
                 <Entry Placeholder="Enter first name" Text="{Binding StudentDetail.FirstName}" />
             </Border>
 
             <Label Text="Last Name" />
-            <Border Padding="5" BackgroundColor="#F5F5F5">
+            <Border Padding="5" BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}">
                 <Entry Placeholder="Enter last name" Text="{Binding StudentDetail.LastName}" />
             </Border>
 
             <Label Text="Email" />
-            <Border Padding="5" BackgroundColor="#F5F5F5">
+            <Border Padding="5" BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}">
                 <Entry Placeholder="Enter email" Text="{Binding StudentDetail.Email}" Keyboard="Email" />
             </Border>
 

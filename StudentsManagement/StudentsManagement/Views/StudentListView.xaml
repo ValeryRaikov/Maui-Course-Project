@@ -25,6 +25,7 @@
                 Command="{Binding AddUpdateStudentCommand}" 
                 HorizontalOptions="End" 
                 BackgroundColor="#28A745"
+                TextColor="White"
                 Margin="0, 5"
                 FontSize="18"
                 FontAttributes="Bold"

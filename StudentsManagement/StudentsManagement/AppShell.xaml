@@ -8,8 +8,16 @@
     Title="Students Management">
 
     <ShellContent
-        Title="Home"
+        Title="Students"
         ContentTemplate="{DataTemplate views:StudentListView}"
-        Route="MainPage" />
+        Route="StudentListView" />
+    <ShellContent
+        Title="Manage Students"
+        ContentTemplate="{DataTemplate views:AddUpdateStudentView}"
+        Route="AddUpdateStudentView" />
+    <ShellContent
+        Title="Settings"
+        ContentTemplate="{DataTemplate views:SettingsView}"
+        Route="SettingsView" />
 
 </Shell>
