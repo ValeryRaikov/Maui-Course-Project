@@ -6,6 +6,7 @@
              xmlns:data="clr-namespace:StudentsManagement.Data"
              x:DataType="vm:StudentListViewModel"
              Title="Registered Students:">
+    
     <VerticalStackLayout Margin="10">
         <Label 
             Text="Student List"
@@ -16,7 +17,8 @@
             Text="Add Student" 
             Command="{Binding AddUpdateStudentCommand}" 
             HorizontalOptions="End" 
-            BackgroundColor="DarkGreen"
+            BackgroundColor="#28A745"
+            Margin="0, 0, 0, 5"
             FontSize="18"
             FontAttributes="Bold"
         />
@@ -26,16 +28,20 @@
                 <DataTemplate x:DataType="data:StudentEntity">
                     <Border Margin="10" Padding="10">
                         <StackLayout>
+                            
                             <HorizontalStackLayout Spacing="10">
                                 <Label Text="{Binding FirstName}" FontSize="18" FontAttributes="Bold" />
                                 <Label Text="{Binding LastName}" FontSize="18" FontAttributes="Bold" />
                             </HorizontalStackLayout>
+                            
                             <Label Text="{Binding Email}" FontSize="16" />
+                            
                         </StackLayout>
                         <Border.GestureRecognizers>
                             <TapGestureRecognizer 
                                 Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:StudentListViewModel}}, 
-                                    Path=DisplayActionCommand}" CommandParameter="{Binding .}"
+                                Path=DisplayActionCommand}" 
+                                CommandParameter="{Binding .}"
                             />
                         </Border.GestureRecognizers>
                     </Border>
