@@ -51,6 +51,16 @@ namespace StudentsManagement.ViewModels
                 if (StudentDetail.StudentId > 0)
                 {
                     response = await _studentService.UpdateStudent(StudentDetail);
+
+                    if (response > 0)
+                    {
+                        await Shell.Current.DisplayAlert("Success", "Student details updated successfully!", "OK");
+                        await Shell.Current.GoToAsync("..");
+                    }
+                    else
+                    {
+                        await Shell.Current.DisplayAlert("Error", "Failed to update student record.", "OK");
+                    }
                 }
                 else
                 {
