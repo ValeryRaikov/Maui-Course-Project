@@ -3,7 +3,6 @@ using CommunityToolkit.Mvvm.Input;
 using StudentsManagement.Data;
 using StudentsManagement.Exceptions;
 using StudentsManagement.Services;
-using StudentsManagement.Views;
 using System.Text.RegularExpressions;
 
 namespace StudentsManagement.ViewModels
